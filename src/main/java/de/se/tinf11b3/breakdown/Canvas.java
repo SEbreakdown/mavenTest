@@ -14,6 +14,7 @@ public class Canvas extends AbstractComponent {
 
 	private String message = "Click here.";
 	private int clicks = 0;
+	private String debug_text = "DEBUG:";
 
 	@Override
 	public void paintContent(PaintTarget target) throws PaintException {
@@ -23,9 +24,10 @@ public class Canvas extends AbstractComponent {
 		// These attributes can be read in updateFromUIDL in the widget.
 		target.addAttribute("clicks", clicks);
 		target.addAttribute("message", message);
-
+		
 		// We could also set variables in which values can be returned
 		// but declaring variables here is not required
+		target.addVariable(this,"debug", debug_text);
 	}
 
 	/**
@@ -38,7 +40,12 @@ public class Canvas extends AbstractComponent {
 		super.changeVariables(source, variables);
 
 		// Variables set by the widget are returned in the "variables" map.
-
+//
+		if(variables.containsKey("debug")) {
+			System.out.println(variables.get("debug"));
+		}
+//		
+		
 		if(variables.containsKey("click")) {
 
 			// When the user has clicked the component we increase the 
@@ -46,7 +53,6 @@ public class Canvas extends AbstractComponent {
 			// the changes are sent back to the client.
 			clicks++;
 			message += "<br/>" + variables.get("click");
-
 			requestRepaint();
 		}
 	}

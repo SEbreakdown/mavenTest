@@ -19,6 +19,8 @@ public class Breakdown extends Application {
 		System.out.println("Player joined");
 		Window mainWindow = new Window("Breakdown");
 
+		
+		
 		mainWindow.addListener(new CloseListener() {
 
 			public void windowClose(CloseEvent e) {
@@ -29,7 +31,7 @@ public class Breakdown extends Application {
 
 		mainWindow.setContent(hauptmenue);
 		setMainWindow(mainWindow);
-		//setTheme("breakdowntheme");
+		setTheme("breakdowntheme");
 	}
 
 }
