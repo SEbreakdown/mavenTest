@@ -9,7 +9,7 @@ import gwt.g2d.client.math.Vector2;
 
 public class Paddle extends Gameobject {
 
-	private int size;
+	private double size;
 	
 
 	/**
@@ -19,12 +19,12 @@ public class Paddle extends Gameobject {
 	 * @param y
 	 * @param size
 	 */
-	public Paddle(int x, int y, Color color, int size, Surface surface) {
+	public Paddle(int x, int y, Color color, double size, Surface surface) {
 		super(x, y, color, surface);
 		this.size = size;
 	}
 
-	public int getSize() {
+	public double getSize() {
 		return size;
 	}
 
@@ -42,6 +42,9 @@ public class Paddle extends Gameobject {
 	}
 	
 
+	public void setSize(double size) {
+		this.size = size;
+	}
 	
 	
 	
