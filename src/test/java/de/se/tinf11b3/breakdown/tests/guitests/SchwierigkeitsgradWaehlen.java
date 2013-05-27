@@ -18,7 +18,7 @@ public class SchwierigkeitsgradWaehlen {
 	
 	@Given("^I started the Application$")
 	public void I_started_the_Application() throws Throwable {
-		selenium = new DefaultSelenium("localhost", 4444, "*firefox", "http://localhost:8080/breakdown/");
+		selenium = new DefaultSelenium("localhost", 4444, "*firefox", "localhost:9090/breakdown-1.0");
 		selenium.start();
 	}
 
